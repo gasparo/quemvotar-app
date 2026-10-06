@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Propostas Políticas</title>
+    <meta name="description" content="Compare propostas políticas de acordo com o seu perfil: profissão, idade, sexo e faixa de renda.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <main class="container">
+        <!-- Intro Section -->
+        <section id="intro-section" class="intro-section">
+            <header class="app-header" style="margin-bottom: 2rem;">
+                <h1>O Que Você Realmente Apoia?</h1>
+                <p>Faça o teste cego de ações reais e descubra qual candidato mais se alinha com o que você defende.</p>
+            </header>
+            <div class="versus-container">
+                <div class="avatar-lula intro-avatar"></div>
+                <div class="versus-badge">VS</div>
+                <div class="avatar-flavio intro-avatar"></div>
+            </div>
+            <div id="intro-setup-container" class="intro-setup-container" style="background: rgba(0,0,0,0.2); padding: 2rem 1rem; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); max-width: 650px; margin: 0 auto;">
+                <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 0.5rem;">O que mais importa para o futuro do Brasil?</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">Selecione de 3 a 5 áreas cruciais para personalizar seu teste cego.</p>
+                
+                <div id="intro-pills-container" class="intro-pills-container">
+                    <!-- Pills dynamically injected -->
+                </div>
+
+                <div class="intro-actions" style="margin-top: 2rem;">
+                    <button id="btn-start-intro" class="btn-primary" disabled style="font-size: 1.1rem; padding: 1rem 3rem; border-radius: 50px; font-weight: 700; transition: all 0.3s ease;">
+                        SELECIONE 3 TEMAS...
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Alignment Header -->
+        <section id="global-results-header" class="results-header hidden">
+            <div class="results-title-group">
+                <div class="header-top-row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <h2 style="margin: 0;">Alinhamento Global</h2>
+                        <div class="precision-badge" id="precision-badge" style="margin: 0;">Calculando...</div>
+                    </div>
+                    <button id="btn-open-profile" title="Configurar Perfil" class="btn-secondary" style="font-size: 0.85rem; padding: 0.4rem 0.8rem; border-radius: 50px; display: flex; align-items: center; gap: 6px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        Meu Perfil
+                    </button>
+                </div>
+                
+                <div id="affinity-results" class="affinity-results">
+                    <div class="affinity-labels" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <span class="lula-label" style="font-weight: 700; font-size: 1rem; color: #ef4444;">Lula (PT)</span>
+                        <span class="flavio-label" style="font-weight: 700; font-size: 1rem; color: #10b981;">Flávio (PL)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.5rem;">
+                        <img src="lula.jpg" alt="Lula" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ef4444; box-shadow: 0 2px 6px rgba(239, 68, 68, 0.4); flex-shrink: 0;">
+                        <div class="affinity-bar-wrapper" style="flex-grow: 1; margin: 0;">
+                            <div class="affinity-bar-lula" id="bar-lula" style="width: 50%;"></div>
+                            <div class="affinity-bar-bolsonaro" id="bar-bolsonaro" style="width: 50%;"></div>
+                            <div class="affinity-marker" id="affinity-marker" style="left: 50%;"></div>
+                        </div>
+                        <img src="flavio.jpg" alt="Flávio" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #10b981; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4); flex-shrink: 0;">
+                    </div>
+                    <div class="affinity-percentages">
+                        <span id="perc-lula">0%</span>
+                        <span id="perc-bolsonaro">0%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Moved Reset Button to bottom of header section for app-like feel -->
+            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                <button id="btn-share" class="btn-primary" style="font-size: 0.95rem; display: flex; align-items: center; gap: 8px; padding: 0.8rem 1.5rem;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                    Compartilhar Resultado
+                </button>
+                <button id="btn-reset" class="btn-secondary" style="font-size: 0.8rem; opacity: 0.7;">⟲ Reiniciar Tudo</button>
+            </div>
+        </section>
+
+        <!-- Tinder Político Section (Teste Cego Dinâmico) -->
+        <section id="tinder-section" class="tinder-section hidden">
+            <header class="tinder-header">
+                <h2 id="tinder-title">Teste Cego de Alinhamento</h2>
+                <p>Você concorda ou discorda das <strong>ações reais</strong> abaixo?</p>
+                <div class="progress-bar">
+                    <div id="tinder-progress" class="progress-fill"></div>
+                </div>
+            </header>
+
+            <div class="tinder-card glass-panel" id="tinder-card">
+                <div id="swipe-overlay" class="swipe-overlay"></div>
+                <span id="tinder-type" class="status-badge status-verdadeiro">Ação Realizada</span>
+                <p id="tinder-text" class="tinder-text">Carregando...</p>
+                <div id="tinder-detail" class="tinder-detail"></div>
+                
+                <div class="tinder-actions-container">
+                    <div class="tinder-actions-5">
+                        <button id="btn-strong-discordo" class="btn-tinder-sm btn-strong-dislike" title="Totalmente Contra">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                        </button>
+                        <button id="btn-discordo" class="btn-tinder-sm btn-dislike" title="Contra">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                        </button>
+                        <button id="btn-indiferente" class="btn-tinder-sm btn-neutral" title="Neutro">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/></svg>
+                        </button>
+                        <button id="btn-concordo" class="btn-tinder-sm btn-like" title="A Favor">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        </button>
+                        <button id="btn-strong-concordo" class="btn-tinder-sm btn-strong-like" title="Totalmente A Favor">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+                        </button>
+                    </div>
+                    <div class="action-labels">
+                        <span>Totalmente<br>Contra</span>
+                        <span>Contra</span>
+                        <span>Neutro</span>
+                        <span>A Favor</span>
+                        <span>Totalmente<br>A Favor</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section (Tabs, Summary, Deep Dive) -->
+        <section id="results-section" class="results-section hidden">
+
+            <!-- No more tabs! -->
+            
+            <div id="tinder-summary-container" class="tinder-summary-container">
+                <h3>Detalhamento das Suas Respostas</h3>
+                <div id="tinder-summary-list" class="tinder-summary-list"></div>
+            </div>
+
+            <!-- Block C: Continuar Explorando -->
+            <section id="next-round-section" class="glass-panel" style="margin-bottom: 2rem; padding: 2rem 1rem;">
+                <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;">Continue o Teste</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; text-align: center;">Quanto mais você joga, mais preciso fica seu alinhamento. Escolha as próximas áreas:</p>
+                
+                <div id="next-pills-container" class="intro-pills-container">
+                    <!-- Pills dynamically injected -->
+                </div>
+
+                <div class="intro-actions" style="margin-top: 2rem; text-align: center;">
+                    <button id="btn-start-next" class="btn-primary" disabled style="font-size: 1.1rem; padding: 1rem 3rem; border-radius: 50px; font-weight: 700; transition: all 0.3s ease;">
+                        SELECIONE 1 TEMA...
+                    </button>
+                </div>
+            </section>
+
+            <!-- Perfil movido para modal -->
+
+            <section id="eixos-section" class="glass-panel" style="margin-bottom: 2rem;">
+                <h2 style="text-align: center;">Estante de Aprofundamento</h2>
+                <p style="color: var(--text-secondary); text-align: center; margin-bottom: 1.5rem;">Clique nos temas que você já jogou para ver o impacto direto das propostas e o histórico completo na área.</p>
+                <div class="themes-grid" id="themes-grid">
+                    <!-- Cards dinâmicos gerados via JS -->
+                </div>
+            </section>
+
+
+            <div id="comparison-grid" class="comparison-grid hidden">
+                <!-- Coluna Candidato 1 -->
+                <div class="candidate-card bolsonaro">
+                    <div class="card-background" style="background-image: url('flavio.jpg');"></div>
+                    <div class="candidate-header">
+                        <div class="avatar" style="background-image: url('flavio.jpg');"></div>
+                        <div class="candidate-title">
+                            <h3>Flávio Bolsonaro</h3>
+                            <div class="party-info">
+                                <img src="https://ui-avatars.com/api/?name=PL&background=023047&color=fff&size=64" alt="PL" class="party-logo" style="border-radius: 4px;">
+                                <span class="party-number">22</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="impact-section">
+                            <h4>Impacto Direto</h4>
+                            <p id="impact-bolsonaro" class="impact-text">...</p>
+                        </div>
+
+                        <div class="history-section">
+                            <h4>Ações do Partido</h4>
+                            <ul id="history-bolsonaro" class="history-list"></ul>
+                        </div>
+
+                        <div class="fact-check-section">
+                            <h4>Fato vs Discurso Público</h4>
+                            <div id="fact-bolsonaro" class="fact-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Candidato 2 -->
+                <div class="candidate-card lula">
+                    <div class="card-background" style="background-image: url('lula.jpg');"></div>
+                    <div class="candidate-header">
+                        <div class="avatar" style="background-image: url('lula.jpg');"></div>
+                        <div class="candidate-title">
+                            <h3>Luiz Inácio Lula da Silva</h3>
+                            <div class="party-info">
+                                <img src="pt_logo.png" alt="PT" class="party-logo">
+                                <span class="party-number">13</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="impact-section">
+                            <h4>Impacto Direto</h4>
+                            <p id="impact-lula" class="impact-text">...</p>
+                        </div>
+
+                        <div class="history-section">
+                            <h4>Ações do Partido</h4>
+                            <ul id="history-lula" class="history-list"></ul>
+                        </div>
+
+                        <div class="fact-check-section">
+                            <h4>Fato vs Discurso Público</h4>
+                            <div id="fact-lula" class="fact-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 3rem; padding-bottom: 2rem;">
+            <a href="mailto:contato@quemvotar.com.br?subject=Reportar Erro - Tinder Político" class="btn-report-error">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; vertical-align: middle;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                Encontrou algum erro? Clique aqui para avisar a equipe.
+            </a>
+        </footer>
+    </main>
+
+    <!-- Modal Profile -->
+    <div id="profile-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-panel" style="max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative;">
+            <button id="btn-close-profile" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; opacity: 0.7;">&times;</button>
+            <h2 style="margin-top: 0;">Análise Profunda por Perfil</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">Quer saber como os candidatos impactam diretamente a sua área de atuação e vida? Preencha os dados abaixo.</p>
+            <form id="profile-form" class="profile-form">
+                <div class="form-group autocomplete-container">
+                    <label for="profissao_input">Área de Atuação / Profissão</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="profissao_input" placeholder="Selecione ou digite sua profissão..." autocomplete="off" required>
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div id="autocomplete-list" class="autocomplete-items hidden"></div>
+                    <input type="hidden" id="profissao_categoria" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="escolaridade">Nível de Escolaridade</label>
+                    <select id="escolaridade" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="fundamental-incompleto">Ensino Fundamental Incompleto</option>
+                        <option value="fundamental-completo">Ensino Fundamental Completo</option>
+                        <option value="medio-incompleto">Ensino Médio Incompleto</option>
+                        <option value="medio-completo">Ensino Médio Completo</option>
+                        <option value="superior-incompleto">Ensino Superior Incompleto</option>
+                        <option value="superior-completo">Ensino Superior Completo</option>
+                        <option value="pos">Pós-graduação / Mestrado / Doutorado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="idade">Idade</label>
+                    <select id="idade" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="16-24">16 a 24 anos</option>
+                        <option value="25-34">25 a 34 anos</option>
+                        <option value="35-49">35 a 49 anos</option>
+                        <option value="50-64">50 a 64 anos</option>
+                        <option value="65+">65 anos ou mais</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sexo">Gênero</label>
+                    <select id="sexo" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="nao-binario">Não-binário</option>
+                        <option value="outro">Outro</option>
+                        <option value="prefiro-nao-dizer">Prefiro não informar</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="renda">Faixa de Renda</label>
+                    <select id="renda" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="ate-2">Até 2 salários mínimos</option>
+                        <option value="2-5">2 a 5 salários mínimos</option>
+                        <option value="5-10">5 a 10 salários mínimos</option>
+                        <option value="mais-10">Mais de 10 salários mínimos</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary" id="btn-submit-profile">Salvar Perfil</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="data.js?v=9"></script>
+    <script src="script.js?v=9"></script>
+</body>
+</html>

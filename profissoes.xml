@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profissoes>
+    <categoria id="saude" nome="Saúde e Bem-estar">
+        <profissao>Médico(a) Clínico Geral</profissao>
+        <profissao>Médico(a) Especialista</profissao>
+        <profissao>Enfermeiro(a)</profissao>
+        <profissao>Técnico(a) em Enfermagem</profissao>
+        <profissao>Odontologista</profissao>
+        <profissao>Fisioterapeuta</profissao>
+        <profissao>Psicólogo(a)</profissao>
+        <profissao>Nutricionista</profissao>
+        <profissao>Farmacêutico(a)</profissao>
+        <profissao>Fonoaudiólogo(a)</profissao>
+        <profissao>Biomédico(a)</profissao>
+        <profissao>Veterinário(a)</profissao>
+        <profissao>Profissional de Educação Física</profissao>
+    </categoria>
+    <categoria id="educacao" nome="Educação e Pesquisa">
+        <profissao>Professor(a) de Ensino Infantil</profissao>
+        <profissao>Professor(a) de Ensino Fundamental</profissao>
+        <profissao>Professor(a) de Ensino Médio</profissao>
+        <profissao>Professor(a) Universitário</profissao>
+        <profissao>Pedagogo(a)</profissao>
+        <profissao>Pesquisador(a) / Cientista</profissao>
+        <profissao>Coordenador(a) Pedagógico(a)</profissao>
+        <profissao>Bibliotecário(a)</profissao>
+        <profissao>Tradutor(a) / Intérprete</profissao>
+    </categoria>
+    <categoria id="tecnologia" nome="Tecnologia da Informação">
+        <profissao>Desenvolvedor(a) de Software (Programador)</profissao>
+        <profissao>Engenheiro(a) de Software</profissao>
+        <profissao>Cientista de Dados</profissao>
+        <profissao>Analista de Sistemas</profissao>
+        <profissao>Especialista em Cibersegurança</profissao>
+        <profissao>Administrador(a) de Redes</profissao>
+        <profissao>Designer UX/UI</profissao>
+        <profissao>Suporte Técnico (Help Desk)</profissao>
+        <profissao>Gestor(a) de Projetos de TI</profissao>
+    </categoria>
+    <categoria id="comercio" nome="Comércio e Vendas">
+        <profissao>Vendedor(a) de Loja</profissao>
+        <profissao>Gerente de Loja</profissao>
+        <profissao>Representante Comercial</profissao>
+        <profissao>Atendente / Recepcionista</profissao>
+        <profissao>Operador(a) de Caixa</profissao>
+        <profissao>Corretor(a) de Imóveis</profissao>
+        <profissao>Consultor(a) de Vendas</profissao>
+        <profissao>Promotor(a) de Vendas</profissao>
+    </categoria>
+    <categoria id="industria" nome="Indústria e Engenharia">
+        <profissao>Engenheiro(a) Civil</profissao>
+        <profissao>Engenheiro(a) Mecânico(a)</profissao>
+        <profissao>Engenheiro(a) Eletricista</profissao>
+        <profissao>Engenheiro(a) de Produção</profissao>
+        <profissao>Técnico(a) Industrial</profissao>
+        <profissao>Operador(a) de Máquinas</profissao>
+        <profissao>Mecânico(a)</profissao>
+        <profissao>Soldador(a)</profissao>
+        <profissao>Eletricista</profissao>
+        <profissao>Mestre de Obras</profissao>
+    </categoria>
+    <categoria id="administrativo" nome="Administrativo e Financeiro">
+        <profissao>Auxiliar Administrativo</profissao>
+        <profissao>Assistente Administrativo</profissao>
+        <profissao>Administrador(a) de Empresas</profissao>
+        <profissao>Contador(a)</profissao>
+        <profissao>Analista Financeiro</profissao>
+        <profissao>Auditor(a)</profissao>
+        <profissao>Economista</profissao>
+        <profissao>Bancário(a)</profissao>
+        <profissao>Analista de Recursos Humanos</profissao>
+        <profissao>Secretário(a) Executivo(a)</profissao>
+    </categoria>
+    <categoria id="direito" nome="Direito e Justiça">
+        <profissao>Advogado(a)</profissao>
+        <profissao>Juiz(a) de Direito</profissao>
+        <profissao>Promotor(a) de Justiça</profissao>
+        <profissao>Defensor(a) Público(a)</profissao>
+        <profissao>Delegado(a) de Polícia</profissao>
+        <profissao>Policial Militar/Civil/Federal</profissao>
+        <profissao>Bombeiro(a) Militar</profissao>
+        <profissao>Agente Penitenciário(a)</profissao>
+    </categoria>
+    <categoria id="comunicacao" nome="Comunicação e Artes">
+        <profissao>Jornalista</profissao>
+        <profissao>Publicitário(a)</profissao>
+        <profissao>Relações Públicas</profissao>
+        <profissao>Designer Gráfico</profissao>
+        <profissao>Produtor(a) de Conteúdo (Influenciador)</profissao>
+        <profissao>Fotógrafo(a)</profissao>
+        <profissao>Cineasta / Audiovisual</profissao>
+        <profissao>Músico(a) / Cantor(a)</profissao>
+        <profissao>Ator / Atriz</profissao>
+    </categoria>
+    <categoria id="autonomo" nome="Autônomo, Informal e Serviços">
+        <profissao>Motorista de Aplicativo (Uber/99)</profissao>
+        <profissao>Entregador(a) de Aplicativo (iFood)</profissao>
+        <profissao>Cabeleireiro(a) / Barbeiro</profissao>
+        <profissao>Manicure / Pedicure</profissao>
+        <profissao>Esteticista</profissao>
+        <profissao>Maquiador(a)</profissao>
+        <profissao>Cozinheiro(a) / Chef de Cozinha</profissao>
+        <profissao>Garçom / Garçonete</profissao>
+        <profissao>Faxineiro(a) / Diarista</profissao>
+        <profissao>Pedreiro</profissao>
+        <profissao>Pintor(a)</profissao>
+        <profissao>Encanador(a)</profissao>
+    </categoria>
+    <categoria id="agro" nome="Agricultura e Meio Ambiente">
+        <profissao>Engenheiro(a) Agrônomo(a)</profissao>
+        <profissao>Técnico(a) Agrícola</profissao>
+        <profissao>Produtor(a) Rural</profissao>
+        <profissao>Trabalhador(a) Rural</profissao>
+        <profissao>Engenheiro(a) Ambiental</profissao>
+        <profissao>Biólogo(a)</profissao>
+    </categoria>
+    <categoria id="estudante" nome="Estudantes e Outros">
+        <profissao>Estudante de Ensino Médio</profissao>
+        <profissao>Estudante Universitário</profissao>
+        <profissao>Estudante de Pós-Graduação (Mestrado/Doutorado)</profissao>
+        <profissao>Aposentado(a) / Pensionista</profissao>
+        <profissao>Desempregado(a) / Em busca de oportunidades</profissao>
+        <profissao>Dona de Casa</profissao>
+    </categoria>
+</profissoes>
